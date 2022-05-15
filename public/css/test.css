@@ -1,0 +1,23 @@
+body {
+    padding: 0 5vw;
+}
+
+header {
+    margin-top: 5px;
+}
+.header-list li {
+    margin-left: 20px;
+    padding: 5px 10px;
+    font-size: 1.25rem;
+}
+
+.job-search-wrap {
+    margin-top: 15vh;
+    width: 50vw;
+}
+.form-each {
+    margin: 50px 0;
+}
+.form-each label {
+    padding: 10px 0;
+}

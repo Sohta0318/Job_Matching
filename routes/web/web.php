@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/test',function(){
-    $client = new \GuzzleHttp\Client();
-    $response = $client->request(
-        'GET',
-        'https://job.yahooapis.jp/v1/furusato/jobinfo/?appid=dj00aiZpPXZwWmFNNjJ3ZnM3cSZzPWNvbnN1bWVyc2VjcmV0Jng9NWU-', // URLを設定
-    );
-    $responseBody = $response->getBody()->getContents();
-    return $responseBody;
-    // return view('test',compact('responseBody'));
+Route::get('/job_search',function(){
+    return view('layouts.job_search');
 });
 
-
+Route::get('/jobs',[JobController::class, 'index'])->name('user.book');
 
 require __DIR__.'/auth.php';
