@@ -21,3 +21,7 @@ header {
 .form-each label {
     padding: 10px 0;
 }
+
+.list:last-child{
+        margin-left: auto;
+}

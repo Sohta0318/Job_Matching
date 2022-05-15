@@ -15,9 +15,9 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($responseBody->results as $data )
+    @foreach ($pagination as $data )
       <tr>
-        <th class="border px-4 py-2">{{$data->title}}</th>
+        <th class="border px-4 py-2">{{$data->cpName}}</th>
         <th class="border px-4 py-2">{{$data->workLocationPrefecture.$data->workLocationCity}}</th>
         <th class="border px-4 py-2">
           @if ($data->workingTimeStart == null || $data->workingTimeEnd == null)

@@ -26,6 +26,8 @@ Route::get('/job_search',function(){
     return view('layouts.job_search');
 });
 
-Route::get('/jobs',[JobController::class, 'index'])->name('user.book');
+Route::get('/jobs',[JobController::class, 'index'])->name('user.jobs');
+
+Route::get('/filter_job',[JobController::class, 'job'])->name('user.filter');
 
 require __DIR__.'/auth.php';
