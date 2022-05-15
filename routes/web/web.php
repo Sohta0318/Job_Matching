@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.home');
 });
 
 Route::get('/dashboard', function () {
@@ -22,7 +22,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/test',function(){
-    return view('test');
+    $client = new \GuzzleHttp\Client();
+    $response = $client->request(
+        'GET',
+        'https://job.yahooapis.jp/v1/furusato/jobinfo/?appid=dj00aiZpPXZwWmFNNjJ3ZnM3cSZzPWNvbnN1bWVyc2VjcmV0Jng9NWU-', // URLを設定
+    );
+    $responseBody = $response->getBody()->getContents();
+    return $responseBody;
+    // return view('test',compact('responseBody'));
 });
 
 
