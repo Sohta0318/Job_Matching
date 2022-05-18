@@ -25,3 +25,7 @@ header {
 .list:last-child{
         margin-left: auto;
 }
+
+.admin-table td {
+    border:1px solid #333;
+}

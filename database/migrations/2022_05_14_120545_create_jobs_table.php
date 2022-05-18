@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('place');
-            $table->string('image');
-            $table->string('salary');
+            $table->string('salary')->nullable();
             $table->integer('employee_id');
             $table->text('description');
-            $table->string('site');
-            $table->integer('tel');
+            $table->string('site')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('workingHour');
             $table->timestamps();
         });
     }

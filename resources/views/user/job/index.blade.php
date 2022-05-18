@@ -15,23 +15,23 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($pagination as $data )
+    @foreach ($jobs as $data )
       <tr>
-        <th class="border px-4 py-2">{{$data->cpName}}</th>
-        <th class="border px-4 py-2">{{$data->workLocationPrefecture.$data->workLocationCity}}</th>
+        <th class="border px-4 py-2">{{$data->title}}</th>
+        <th class="border px-4 py-2">{{$data->place}}</th>
         <th class="border px-4 py-2">
-          @if ($data->workingTimeStart == null || $data->workingTimeEnd == null)
+          @if ($data->hours == null)
             未定
             @else
-            {{$data->workingTimeStart.' ~ '. $data->workingTimeEnd}}</th>
+            {{$data->hours}}</th>
           @endif
-        <th class="border px-4 py-2">{{$data->salaryMax.'円 ~ '.$data->salaryMin.'円'}}</th>
-        <th class="border px-4 py-2">{{$data->employmentTypeNote}}</th>
+        <th class="border px-4 py-2">{{$data->salary}}</th>
+        <th class="border px-4 py-2"></th>
         <th class="border px-4 py-2">{{Str::limit($data->description,20)}}</th>
-        <th class="border px-4 py-2">{{$data->title}}</th>
-        <th class="border px-4 py-2"><a href="{{$data->receptionUrl}}" target="_blank">サイト</a></th>
+        <th class="border px-4 py-2"><a href="{{$data->site}}" target="_blank">サイト</a></th>
+        <th class="border px-4 py-2">{{$data->tel}}</th>
         <th class="border px-4 py-2"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          <a href="{{$data->receptionForm}}" target="_blank">応募する</a>
+          <a href="{{$data->site}}" target="_blank">応募する</a>
         </button></th>
       </tr>
     @endforeach

@@ -12,7 +12,7 @@
     <div class="job-each border-b-2 border-gray-200 pb-6 px-16 pt-8 ">
 
             
-                <h1 class="text-3xl py-4">{{isset($job) ? $job->title: ''}}</h1>
+                <h1 class="text-3xl py-4">会社名</h1>
                 <div class="job-flex flex">
                     <div class="job-type flex rounded-md bg-gray-200 text-gray-800 px-2 py-1">
                         <p class="text-xl">勤務形態</p>

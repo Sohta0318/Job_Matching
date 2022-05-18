@@ -2,22 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
     function index(){
-        $client = new \GuzzleHttp\Client();
-    $response = $client->request(
-        'GET',
-        'https://job.yahooapis.jp/v1/furusato/jobinfo/?appid=dj00aiZpPXZwWmFNNjJ3ZnM3cSZzPWNvbnN1bWVyc2VjcmV0Jng9NWU-&results=1000&fields=full',
-    );
-    $responseBody = json_decode($response->getBody()->getContents());
-    $pagination = $responseBody->results::pagination(10);
-        return view('user.job.index',compact('pagination'));
+    $jobs = Job::all();
+        return view('user.job.index',compact('jobs'));
     }
 
-    function job(){
-        return view('layouts.filter_jobs');
+    function search(){
+        return view('layouts.filter_job');
+    }
+
+    function job(Job $job){
+        
+        return view('layouts.filter_jobs',compact('job'));
+    }
+
+    function store (Request $request){
+        $keyword = $request->keyword;
+        $place = $request ->place;
+        $job = Job::where('place', 'LIKE',  "%{$place}%")->first();
+        // return $job;
+        return redirect(route('job.filter',$job));
     }
 }

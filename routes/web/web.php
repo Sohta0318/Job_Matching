@@ -26,8 +26,10 @@ Route::get('/job_search',function(){
     return view('layouts.job_search');
 });
 
-Route::get('/jobs',[JobController::class, 'index'])->name('user.jobs');
+Route::get('/jobs',[JobController::class, 'index'])->name('job.jobs');
 
-Route::get('/filter_job',[JobController::class, 'job'])->name('user.filter');
+Route::get('/filter_job/{job}',[JobController::class, 'job'])->name('job.filter');
+Route::get('/filter_job',[JobController::class, 'search'])->name('job.search');
+Route::post('/filter_job/post',[JobController::class, 'store'])->name('job.store');
 
 require __DIR__.'/auth.php';
