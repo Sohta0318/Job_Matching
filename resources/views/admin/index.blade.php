@@ -4,11 +4,11 @@
     <div class="admin-table">
         <table class="text-center ">
             <tr>
-                <th>id</th>
-                <th>名前</th>
-                <th>メールアドレス</th>
-                <th>権限</th>
-                <th>性格</th>
+                <th class="w-32">id</th>
+                <th class="w-32">名前</th>
+                <th class="w-56">メールアドレス</th>
+                <th class="w-32">権限</th>
+                <th class="w-32">性格</th>
             </tr>
 
             <tr>
